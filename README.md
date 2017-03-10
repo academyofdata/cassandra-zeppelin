@@ -29,3 +29,5 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 110e8f4b16b3        zeppelin_zeppelin   "bin/zeppelin.sh"        4 days ago          Up 3 days           0.0.0.0:4040->4040/tcp, 0.0.0.0:8080-8081->8080-8081/tcp                                                   zeppelin_zeppelin_1
 bbb70c263987        cassandra:3.9       "/docker-entrypoint.s"   4 days ago          Up 3 days           0.0.0.0:7000-7001->7000-7001/tcp, 0.0.0.0:7199->7199/tcp, 0.0.0.0:9042->9042/tcp, 0.0.0.0:9160->9160/tcp   zeppelin_cassandra_1
 ```
+(pay attention in special to the STATUS column - it should say Up and not Exited)
+Once the containers are running you can go to http://virtualmachineip:8080 (replace with your own VirtualBox or local machine IP) and you should see the Zeppelin interface
