@@ -10,6 +10,7 @@ To install/configure Docker and/or Docker Compose follow the steps described at 
 ## Usage
 Once the docker & docker-compose prerequisites are met, go on and clone this repository 
 e.g. 
-```git clone https://github.com/academyofdata/cassandra-zeppelin
+```
+git clone https://github.com/academyofdata/cassandra-zeppelin
 ```
 
