@@ -13,4 +13,19 @@ e.g.
 ```
 git clone https://github.com/academyofdata/cassandra-zeppelin
 ```
-
+followed by
+```
+cd cassandra-zeppelin
+docker-compose build
+docker-compose up -d
+```
+Assuming that you haven't encountered problems during build or run phase, you can now test that the containers are running by issuing the following command
+```
+docker ps
+```
+which should have an output similar with the one below
+```
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                                                                      NAMES
+110e8f4b16b3        zeppelin_zeppelin   "bin/zeppelin.sh"        4 days ago          Up 3 days           0.0.0.0:4040->4040/tcp, 0.0.0.0:8080-8081->8080-8081/tcp                                                   zeppelin_zeppelin_1
+bbb70c263987        cassandra:3.9       "/docker-entrypoint.s"   4 days ago          Up 3 days           0.0.0.0:7000-7001->7000-7001/tcp, 0.0.0.0:7199->7199/tcp, 0.0.0.0:9042->9042/tcp, 0.0.0.0:9160->9160/tcp   zeppelin_cassandra_1
+```
