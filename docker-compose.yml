@@ -1,0 +1,33 @@
+zeppelin:
+  build: ./zepcass
+  environment:
+    ZEPPELIN_PORT: 8080
+    ZEPPELIN_JAVA_OPTS: >-
+      -Dspark.driver.memory=1g
+      -Dspark.executor.memory=2g
+    SPARK_SUBMIT_OPTIONS: >-
+      --conf spark.driver.host=localhost
+      --conf spark.driver.port=8081
+      --conf spark.es.port=9200
+      --packages datastax:spark-cassandra-connector:2.0.0-M2-s_2.11
+      --conf spark.cassandra.connection.host=cassandra
+      --conf cassandra.hosts=cassandra
+    MASTER: local[*]
+  links:
+    - cassandra:cassandra
+  ports:
+    - 8080:8080
+    - 8081:8081
+    - 4040:4040
+  volumes:
+    - ./znotebooks:/usr/zeppelin/notebook
+cassandra:
+  image: cassandra:3.9
+  ports:
+    - 7000:7000
+    - 7001:7001
+    - 9042:9042
+    - 9160:9160
+    - 7199:7199
+  volumes:
+    - ./cdata:/var/lib/cassandra
