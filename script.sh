@@ -1,6 +1,4 @@
 #!/bin/bash
-apt-get update 
-apt-get install -y wget
 wget https://raw.githubusercontent.com/academyofdata/inputs/master/movies.csv -O /tmp/movies.csv
 wget https://raw.githubusercontent.com/academyofdata/inputs/master/ratings2.csv -O /tmp/ratings_s.csv
 wget https://raw.githubusercontent.com/academyofdata/inputs/master/ratings.csv.gz -O /tmp/ratings.csv.gz
