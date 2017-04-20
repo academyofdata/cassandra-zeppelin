@@ -42,7 +42,7 @@ apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercon
 ```
 docker exec -ti containers_cassandra_1 bash
 ```
-- see exact name of your container with docker ps -a)
+Note: see exact name of your container with docker ps -a)
 
 # Starting a Zeppelin only instance
 
