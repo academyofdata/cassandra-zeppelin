@@ -32,6 +32,17 @@ bbb70c263987        cassandra:3.9       "/docker-entrypoint.s"   4 days ago     
 (pay attention in special to the STATUS column - it should say Up and not Exited)
 Once the containers are running you can go to http://virtualmachineip:8080 (replace with your own VirtualBox or local machine IP) and you should see the Zeppelin interface
 
+# Bulk-Loading data in Cassandra
+To load all the exercise data into a newly created "test" keyspace and creating all the required tables, run the following command inside the Cassandra container
+
+```
+apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/script.sh | bash
+```
+(to log into the container run
+```
+docker exec -ti containers_cassandra_1 bash
+```
+- see exact name of your container with docker ps -a)
 
 # Starting a Zeppelin only instance
 
