@@ -31,3 +31,29 @@ bbb70c263987        cassandra:3.9       "/docker-entrypoint.s"   4 days ago     
 ```
 (pay attention in special to the STATUS column - it should say Up and not Exited)
 Once the containers are running you can go to http://virtualmachineip:8080 (replace with your own VirtualBox or local machine IP) and you should see the Zeppelin interface
+
+
+# Starting a Zeppelin only instance
+
+Edit the docker-compose.yml file to read as below
+```
+zeppelin:
+  image:  dylanmei/zeppelin
+  environment:
+    ZEPPELIN_PORT: 8080
+    ZEPPELIN_JAVA_OPTS: >-
+      -Dspark.driver.memory=1g
+      -Dspark.executor.memory=2g
+    SPARK_SUBMIT_OPTIONS: >-
+      --conf spark.driver.host=localhost
+      --conf spark.driver.port=8081
+      
+    MASTER: local[*]
+  ports:
+    - 8080:8080
+    - 8081:8081
+    - 4040:4040
+  volumes:
+    - ./znotebooks:/usr/zeppelin/notebook
+```
+and issue the same docker-compose up -d command
