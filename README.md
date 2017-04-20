@@ -38,11 +38,7 @@ To load all the exercise data into a newly created "test" keyspace and creating 
 ```
 apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/script.sh | bash
 ```
-(to log into the container run
-```
-docker exec -ti containers_cassandra_1 bash
-```
-Note: see exact name of your container with docker ps -a)
+(to log into the container run 'docker exec -ti containers_cassandra_1 bash' from your container host, after you check the exact name of your container with 'docker ps -a')
 
 # Starting a Zeppelin only instance
 
