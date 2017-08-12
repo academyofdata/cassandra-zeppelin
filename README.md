@@ -46,9 +46,31 @@ If you've previously started other containers with Zeppelin (for instance the Ze
 ```
 docker-compose stop
 ```
+
+Otherwise there will be port conflicts when attempting to start the new cluster and the new Zeppelin instance. 
+
+Start with this more complex configuration by issuing the command below (in the same folder where you've cloned this git repository)
+
 ```
 docker-compose -f docker-cluster.yml up -d
 ```
+
+After starting check that the containers are running (``` docker ps -a ```), wait for a few seconds (20-30 should be enough), log into one of the cassandra nodes (``` docker exec -ti zeppelin_node01_1 bash ```) and check the cluster status (run this in the container)
+```
+nodetool status
+```
+If the cluster started correctly you should see back a few lines, three of them starting with UN, like this
+```
+Datacenter: datacenter1
+=======================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address     Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  172.17.0.3  110.13 KiB  256          67.6%             5460abe0-cf14-4d87-bf11-04f4ccd3f14c  rack1
+UN  172.17.0.2  108.46 KiB  256          62.0%             17d1e7cd-2ff6-4397-8495-a42c12a3807f  rack1
+UN  172.17.0.4  103.09 KiB  256          70.4%             70d2d32c-d7cd-4662-9e98-906167b0e4b7  rack1
+```
+This means that all the nodes are up (U) and operating normally (N)
 
 
 # Starting a Zeppelin only instance
