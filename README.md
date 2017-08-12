@@ -41,7 +41,7 @@ apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercon
 (to log into the container run 'docker exec -ti containers_cassandra_1 bash' from your container host, after you check the exact name of your container with 'docker ps -a')
 
 # Starting a Zeppelin instance connected to a Cassandra cluster (with 3 nodes)
-** PLEASE NOTE **
+***PLEASE NOTE***
 If you've previously started other containers with Zeppelin (for instance the Zeppelin + a single Cassandra node as outlined above), make sure to stop them before starting the instance connected to the cluster. You can do that with
 ```
 docker-compose stop
