@@ -1,0 +1,64 @@
+node01:
+    image: cassandra:3.9
+    ports:
+        - "7000:7000"
+        - "7001:7001"
+        - "9042:9042"
+        - "9160:9160"
+        - "7199:7199"
+    volumes:
+        - ./data1:/var/lib/cassandra
+   
+node02:
+    image: cassandra:3.9
+    ports:
+        - "17000:7000"
+        - "17001:7001"
+        - "19042:9042"
+        - "19160:9160"
+        - "17199:7199"
+    volumes:
+        - ./data2:/var/lib/cassandra
+    environment:
+        - CASSANDRA_SEEDS=node01
+    links:
+        - node01:node01
+
+node03:
+    image: cassandra:3.9
+    ports:
+        - "27000:7000"
+        - "27001:7001"
+        - "29042:9042"
+        - "29160:9160"
+        - "27199:7199"
+    volumes:
+        - ./data3:/var/lib/cassandra
+    environment:
+        - CASSANDRA_SEEDS=node01
+    links:
+        - node01:node01
+
+zeppelin:
+  build: ./zepcass
+  environment:
+    ZEPPELIN_PORT: 8080
+    ZEPPELIN_JAVA_OPTS: >-
+      -Dspark.driver.memory=1g
+      -Dspark.executor.memory=2g
+    SPARK_SUBMIT_OPTIONS: >-
+      --conf spark.driver.host=localhost
+      --conf spark.driver.port=8081
+      --conf spark.es.port=9200
+      --packages datastax:spark-cassandra-connector:2.0.0-M2-s_2.11
+      --conf spark.cassandra.connection.host=cassandra
+      --conf cassandra.hosts=cassandra
+    MASTER: local[*]
+  links:
+    - node01:cassandra
+  ports:
+    - 8080:8080
+    - 8081:8081
+    - 4040:4040
+  volumes:
+    - ./znotebooks:/usr/zeppelin/notebook
