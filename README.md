@@ -32,7 +32,7 @@ bbb70c263987        cassandra:3.9       "/docker-entrypoint.s"   4 days ago     
 (pay attention in special to the STATUS column - it should say Up and not Exited)
 Once the containers are running you can go to http://virtualmachineip:8080 (replace with your own VirtualBox or local machine IP) and you should see the Zeppelin interface
 
-# Starting a Zeppelin instance connected to a Cassandra cluster (with 3 nodes)
+## Starting a Zeppelin instance connected to a Cassandra cluster (with 3 nodes)
 ***PLEASE NOTE***
 If you've previously started other containers with Zeppelin (for instance the Zeppelin + a single Cassandra node as outlined above), make sure to stop them before starting the instance connected to the cluster. You can do that with
 ```
@@ -64,7 +64,7 @@ UN  172.17.0.4  103.09 KiB  256          70.4%             70d2d32c-d7cd-4662-9e
 ```
 This means that all the nodes are up (U) and operating normally (N)
 
-# Bulk-Loading data in Cassandra
+## Bulk-Loading data in Cassandra
 To load all the exercise data into a newly created "test" keyspace and creating all the required tables, run the following command inside the Cassandra container (if you have an existing "test" keyspace, drop it)
 
 ```
@@ -72,7 +72,7 @@ apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercon
 ```
 (to log into the container run 'docker exec -ti containers_cassandra_1 bash' from your container host, after you check the exact name of your container with 'docker ps -a')
 
-# Starting a Zeppelin only instance
+## Starting a Zeppelin only instance
 
 Edit the docker-compose.yml file to read as below
 ```
