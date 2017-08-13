@@ -7,13 +7,13 @@ Make sure to have a valid Docker and docker-compose Installation, running on a 6
 
 To install/configure Docker and/or Docker Compose follow the steps described at https://docs.docker.com/compose/install/ and https://docs.docker.com/engine/installation/linux/ubuntu/ (this is for Ubuntu based Linux systems)
 
-## Usage
-Once the docker & docker-compose prerequisites are met, go on and clone this repository 
-e.g. 
+As a last step, clone this repository (you might need to do first ```apt-get install git```)
 ```
 git clone https://github.com/academyofdata/cassandra-zeppelin
 ```
-followed by
+
+## Starting a single node Cassandra + Zeppelin instance
+Once the docker & docker-compose prerequisites are met and the repository is cloned (example below assumes it is cloned in a folder called cassandra-zeppelin), do the following
 ```
 cd cassandra-zeppelin
 docker-compose build
@@ -31,14 +31,6 @@ bbb70c263987        cassandra:3.9       "/docker-entrypoint.s"   4 days ago     
 ```
 (pay attention in special to the STATUS column - it should say Up and not Exited)
 Once the containers are running you can go to http://virtualmachineip:8080 (replace with your own VirtualBox or local machine IP) and you should see the Zeppelin interface
-
-# Bulk-Loading data in Cassandra
-To load all the exercise data into a newly created "test" keyspace and creating all the required tables, run the following command inside the Cassandra container (if you have an existing "test" keyspace, drop it)
-
-```
-apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/script.sh | bash
-```
-(to log into the container run 'docker exec -ti containers_cassandra_1 bash' from your container host, after you check the exact name of your container with 'docker ps -a')
 
 # Starting a Zeppelin instance connected to a Cassandra cluster (with 3 nodes)
 ***PLEASE NOTE***
@@ -72,6 +64,13 @@ UN  172.17.0.4  103.09 KiB  256          70.4%             70d2d32c-d7cd-4662-9e
 ```
 This means that all the nodes are up (U) and operating normally (N)
 
+# Bulk-Loading data in Cassandra
+To load all the exercise data into a newly created "test" keyspace and creating all the required tables, run the following command inside the Cassandra container (if you have an existing "test" keyspace, drop it)
+
+```
+apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/script.sh | bash
+```
+(to log into the container run 'docker exec -ti containers_cassandra_1 bash' from your container host, after you check the exact name of your container with 'docker ps -a')
 
 # Starting a Zeppelin only instance
 
