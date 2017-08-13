@@ -1,6 +1,6 @@
 # Cassandra + Spark + Zeppelin
 
-This is a repository for a docker-compose script that creates two Docker containers - one with a Zeppelin instance and the other one with a Cassandra node
+This is a repository for a couple of docker-compose scripts, one of which that creates two Docker containers - one with a Zeppelin instance and the other one with a Cassandra node, the other one starting 4 containers - one with Zeppelin and 3 with a Cassandra three node cluster
 
 ## Configuration and Installation
 Make sure to have a valid Docker and docker-compose Installation, running on a 64-bit system (either directly on a mac or Linux machine, or on a VirtualBox - or similar - VM running a 64-bit guest; this means that you'll end up running Docker inside a VM, this is fine for testing and learning purposes). 
