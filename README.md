@@ -65,6 +65,9 @@ UN  172.17.0.4  103.09 KiB  256          70.4%             70d2d32c-d7cd-4662-9e
 This means that all the nodes are up (U) and operating normally (N)
 
 ## Bulk-Loading data in Cassandra
+***PLEASE NOTE***
+If you already have a 'test' keyspace it's better to drop it before executing the steps below.
+
 To load all the exercise data into a newly created "test" keyspace and creating all the required tables, run the following command inside the Cassandra container (if you have an existing "test" keyspace, drop it)
 
 ```
