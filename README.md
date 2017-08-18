@@ -77,7 +77,14 @@ apt-get update && apt-get install -y wget && wget -qO- https://raw.githubusercon
 
 ## Connecting Zeppelin to Cassandra
 To be able to run queries from Zeppelin against a cassandra cluster (or a single node) we need to instruct Zeppelin's interpreter for Cassandra to connect to the right host. Since when using docker-compose we've specified that the cassandra container (or, when using a cluster, one of the containers) is available as the host 'cassandra', we just need adjust a single  configuration value. For this, click in the right top corner of Zeppelin the "Anonymous" button to open the menu with a few options, one of which is "Interpreter"
-[<img src="https://github.com/academyofdata/cassandra-zeppelin/blob/master/assets/1.png">](see it)
+
+<img src="https://github.com/academyofdata/cassandra-zeppelin/blob/master/assets/1.png">
+
+Once on that page scroll to the Cassandra section and edit the value for "cassandra.hosts" to read "cassandra"
+
+<img src="https://github.com/academyofdata/cassandra-zeppelin/blob/master/assets/2.png">
+
+
 
 ## Starting a Zeppelin only instance
 
