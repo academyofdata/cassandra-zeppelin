@@ -84,6 +84,9 @@ Once on that page scroll to the Cassandra section and edit the value for __cassa
 
 <img src="https://github.com/academyofdata/cassandra-zeppelin/blob/master/assets/2.png">
 
+***NOTE***
+We could configure Zeppelin to connect to any of the hosts when running in the cluster configuration. For this we would first need to ammend the docker-compose configuration to also link the other nodes into zeppelin (in "links" section) and then we could set the cassandra.hosts to the hostnames separated by comma (e.g. "cassandra,cassandra2,cassandra3")
+
 
 
 ## Starting a Zeppelin only instance
