@@ -80,7 +80,7 @@ To be able to run queries from Zeppelin against a cassandra cluster (or a single
 
 <img src="https://github.com/academyofdata/cassandra-zeppelin/blob/master/assets/1.png">
 
-Once on that page scroll to the Cassandra section and edit the value for "cassandra.hosts" to read "cassandra"
+Once on that page scroll to the Cassandra section and edit the value for __cassandra.hosts__ to read **cassandra** as shown below
 
 <img src="https://github.com/academyofdata/cassandra-zeppelin/blob/master/assets/2.png">
 
