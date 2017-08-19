@@ -113,3 +113,10 @@ zeppelin:
     - ./znotebooks:/usr/zeppelin/notebook
 ```
 and issue the same docker-compose up -d command
+
+
+## get_num_processes
+
+If you get a ***get_num_processes() takes no keyword arguments error***, get out of cqlsh (but stay in the container shell, not on the host system) and run
+
+rm /usr/lib/pymodules/python2.7/cqlshlib/copyutil.so
