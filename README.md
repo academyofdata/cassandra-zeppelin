@@ -90,8 +90,15 @@ We could configure Zeppelin to connect to any of the hosts when running in the c
 
 ## Starting containers without docker-compose
 Assuming that you already have a running Cassandra container, in order to connect a new zeppelin instance to it run the following
-
+```
 docker run -d -p 8080:8080 -p 8081:8081 -p 4040:4040 -e MASTER="local[*]" -e ZEPPELIN_PORT="8080" -e ZEPPELIN_JAVA_OPTS="-Dspark.driver.memory=1g -Dspark.executor.memory=2g" -e SPARK_SUBMIT_OPTS="--conf spark.driver.host=localhost --conf spark.driver.port=8081" --link <id_or_name_of_cassandra_container>:cassandra -v ./:/usr/zeppelin/notebook
+```
+
+after the container starts run 
+
+```
+docker exec -ti <id_or_name_of_zeppelin_container> bash -c "/usr/zeppelin/bin/install-interpreter.sh --name cassandra"
+```
 
 ## Starting a Zeppelin only instance
 
