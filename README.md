@@ -88,6 +88,10 @@ Once on that page scroll to the Cassandra section and edit the value for __cassa
 We could configure Zeppelin to connect to any of the hosts when running in the cluster configuration. For this we would first need to ammend the docker-compose configuration to also link the other nodes into zeppelin (in "links" section) and then we could set the cassandra.hosts to the hostnames separated by comma (e.g. "cassandra,cassandra2,cassandra3")
 
 
+## Starting containers without docker-compose
+Assuming that you already have a running Cassandra container, in order to connect a new zeppelin instance to it run the following
+
+docker run -d -p 8080:8080 -p 8081:8081 -p 4040:4040 -e MASTER="local[*]" -e ZEPPELIN_PORT="8080" -e ZEPPELIN_JAVA_OPTS="-Dspark.driver.memory=1g" -e SPARK_SUBMIT_OPTS="--conf spark.driver.host=localhost --conf spark.driver.port=8081" --link <id_or_name_of_cassandra_container>:cassandra -v ./:/usr/zeppelin/notebook
 
 ## Starting a Zeppelin only instance
 
