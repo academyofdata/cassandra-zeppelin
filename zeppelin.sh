@@ -35,7 +35,7 @@ then
 	sleep 60
 	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" ./conf/interpreter.json
 	sed -i "s/\"cassandra.cluster\": \"Test Cluster\"/\"cassandra.cluster\": \"CassandraTraining\"/g" ./conf/interpreter.json
-	sed -i "s/\"spark.cores.max\": \"\"/\"spark.cores.max\": \"\",\"spark.cassandra.connection.host\": \"$1\"/g"
+	sed -i "s/\"spark.cores.max\": \"\"/\"spark.cores.max\": \"\",\"spark.cassandra.connection.host\": \"$1\"/g" ./conf/interpreter.json
 	echo "re-starting daemon..."
 	./bin/zeppelin-daemon.sh restart
 
