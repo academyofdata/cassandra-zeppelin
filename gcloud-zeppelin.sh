@@ -1,6 +1,6 @@
 #!/bin/bash
 #replace zone as needed
-ZONE="europe-west3-a"
+ZONE="europe-west1-d"
 SID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | tr '[:upper:]' '[:lower:]'| head -n 1)
 INSTANCE="zep-${SID}"
 
