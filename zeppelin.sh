@@ -33,6 +33,8 @@ then
 	#wait untin Zeppelin starts and creates the interpreter.json file
 	sleep 60
 	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" ./conf/interpreter.json
+	sed -i "s/\"cassandra.cluster\": \"Test Cluster\"/\"cassandra.cluster\": \"CassandraTraining\"/g" ./conf/interpreter.json
+	
 	echo "re-starting daemon..."
 	./bin/zeppelin-daemon.sh restart
 
