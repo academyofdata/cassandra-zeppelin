@@ -31,7 +31,7 @@ echo "starting daemon..."
 if [ $# -ge 1 ]
 then
 	sleep 15
-	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" conf/interpreter.json
+	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" ./conf/interpreter.json
 	echo "re-starting daemon..."
 	./bin/zeppelin-daemon.sh restart
 
