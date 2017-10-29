@@ -9,6 +9,6 @@ gcloud compute instances create ${INSTANCE} --zone ${ZONE} --machine-type g1-sma
 echo "waiting for the machine to come up"
 sleep 30
 
-echo "installing cassandra on remote node"
+echo "installing Apache Zeppelin on remote node"
 gcloud compute ssh ${INSTANCE} --zone $ZONE --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/zeppelin.sh | bash"
 
