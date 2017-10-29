@@ -30,6 +30,7 @@ echo "starting daemon..."
 
 if [ $# -ge 1 ]
 then
+	echo "waiting for Zeppelin to start..."
 	#wait untin Zeppelin starts and creates the interpreter.json file
 	sleep 60
 	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" ./conf/interpreter.json
