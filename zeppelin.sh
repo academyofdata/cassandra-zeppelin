@@ -24,11 +24,17 @@ cp conf/zeppelin-site.xml.template conf/zeppelin-site.xml
 #disable anonymous access
 sed -i '/zeppelin.anonymous.allowed/{n;s/.*/<value>false<\/value>/}' ./conf/zeppelin-site.xml
 
+echo "starting daemon..."
+./bin/zeppelin-daemon.sh start
+
+
 if [ $# -ge 1 ]
 then
+	sleep 15
 	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" conf/interpreter.json
+	echo "re-starting daemon..."
+	./bin/zeppelin-daemon.sh restart
+
 fi
 
-echo "starting daemon..."
-bin/zeppelin-daemon.sh start
 	
