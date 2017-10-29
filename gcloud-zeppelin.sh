@@ -12,7 +12,7 @@ sleep 25
 CASSANDRA=$(gcloud compute instances list --filter="labels.cassandra-seed=true" --format="value(networkInterfaces[0].networkIP)")
 
 echo "installing Apache Zeppelin on remote node"
-gcloud compute ssh ${INSTANCE} --zone $ZONE --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/zeppelin.sh | bash $CASSANDRA"
+gcloud compute ssh ${INSTANCE} --zone $ZONE --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/zeppelin.sh | bash -s $CASSANDRA"
 
 EXTIP=$(gcloud compute instances list --filter="name=${INSTANCE}" --format="value(networkInterfaces[0].accessConfigs[0].natIP)")
 echo "Access Zeppelin interface at http://${EXTIP}:8080"
