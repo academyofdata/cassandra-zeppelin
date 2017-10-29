@@ -18,7 +18,7 @@ cp conf/shiro.ini.template conf/shiro.ini
 #the Apache shiro template comes with a bunch of users pre-defined, remove them
 sed -i "/^user/d" ./conf/shiro.ini 
 # admin default password in shiro.ini is password1, change it to a value of our own
-sed "s/password1/${PASSWORD}/g" ./conf/shiro.ini
+sed -i "s/password1/${PASSWORD}/g" ./conf/shiro.ini
 
 cp conf/zeppelin-site.xml.template conf/zeppelin-site.xml
 #disable anonymous access
