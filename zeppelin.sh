@@ -10,8 +10,8 @@ echo "installing Oracle JDK"
 sudo apt-get install -y oracle-java8-installer wget
 echo "getting Zeppeling Archive"
 wget http://apache.javapipe.com/zeppelin/zeppelin-${ZEP_VER}/zeppelin-${ZEP_VER}-bin-all.tgz
-echo "unarchiving..."
-tar -xzf zeppelin-${ZEP_VER}-bin-all.tgz
+echo "unpacking..."
+tar -xzvf zeppelin-${ZEP_VER}-bin-all.tgz
 cd zeppelin-${ZEP_VER}-bin-all/
 #enable authentication
 cp conf/shiro.ini.template ./conf/shiro.ini
