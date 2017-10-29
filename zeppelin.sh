@@ -23,6 +23,12 @@ sed -i "s/password1/${PASSWORD}/g" ./conf/shiro.ini
 cp conf/zeppelin-site.xml.template conf/zeppelin-site.xml
 #disable anonymous access
 sed -i '/zeppelin.anonymous.allowed/{n;s/.*/<value>false<\/value>/}' conf/zeppelin-site.xml
+
+if[ $# -ge 1]
+then
+	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" conf/interpreter.json
+fi
+
 echo "starting daemon..."
 bin/zeppelin-daemon.sh start
 	
