@@ -37,4 +37,4 @@ then
 fi
 
 #enable automatic start at boot
-sudo sed -i "$ i\\$(pwd)/zeppelin-${ZEP_VER}-bin-all/bin/zeppelin-daemon.sh start"
+sudo sed -i "$ i\\$(pwd)/zeppelin-${ZEP_VER}-bin-all/bin/zeppelin-daemon.sh start" /etc/rc.local
