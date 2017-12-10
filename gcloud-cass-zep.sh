@@ -16,7 +16,7 @@ then
 	exit
 fi
 echo "Creating a Google Cloud Engine VM instance"
-safeRun "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-cluster/master/gcloud-server-setup.sh | bash -s $1"
+wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-cluster/master/gcloud-server-setup.sh | bash -s $1
 zone=$(gcloud compute instances list --filter="name=$1" --format="value(zone)")
 echo "Instance is created in the zone $zone"
 echo "Downloading sample data ..."
