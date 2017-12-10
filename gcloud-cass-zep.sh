@@ -8,9 +8,9 @@ wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-cluster/mast
 zone=$(gcloud compute instances list --filter="name=$1" --format="value(zone)")
 echo "Instance is created in the zone $zone"
 echo "Downloading sample data ..."
-gcloud compute ssh $1 --zone $zone --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-cluster/master/get-data.sh | sudo bash"
+gcloud compute ssh $1 --zone $zone --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-cluster/master/get-data.sh | bash"
 echo "Downloading and setting up Apache Zeppelin ..."
-gcloud compute ssh $1 --zone $zone --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/zeppelin.sh | sudo bash"
+gcloud compute ssh $1 --zone $zone --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/zeppelin.sh | bash"
 echo "Adding the user 'cuser' for ssh login"
 gcloud compute ssh $1 --zone $zone --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/gcloud-user.sh | bash -s cuser"
 echo "Creating a firewall rule to allow Zeppelin access"
