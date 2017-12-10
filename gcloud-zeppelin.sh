@@ -4,7 +4,7 @@ ZONE="europe-west1-d"
 SID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | tr '[:upper:]' '[:lower:]'| head -n 1)
 INSTANCE="zep-${SID}"
 
-gcloud compute instances create ${INSTANCE} --zone ${ZONE} --machine-type n1-standard-1 --maintenance-policy "MIGRATE" --image "https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/family/ubuntu-1604-lts" --boot-disk-size "10" --boot-disk-type "pd-standard" --boot-disk-device-name "${INSTANCE}disk"
+gcloud compute instances create ${INSTANCE} --tags zeppelin --zone ${ZONE} --machine-type n1-standard-1 --maintenance-policy "MIGRATE" --image "https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/family/ubuntu-1604-lts" --boot-disk-size "10" --boot-disk-type "pd-standard" --boot-disk-device-name "${INSTANCE}disk"
 
 echo "waiting for the machine to come up"
 sleep 25
