@@ -15,5 +15,7 @@ echo "Downloading and setting up Apache Zeppelin ..."
 gcloud compute ssh $1 --zone $zone --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/zeppelin.sh | bash"
 echo "Adding the user 'cuser' for ssh login"
 gcloud compute ssh $1 --zone $zone --command "wget -qO- https://raw.githubusercontent.com/academyofdata/cassandra-zeppelin/master/gcloud-user.sh | bash -s cuser"
+rulename="allow-zep"
+fwrule=$(gcloud compute firewall-rules list --format='value(name)'|grep $rulename|wc -l)
 echo "Creating a firewall rule to allow Zeppelin access"
-gcloud compute firewall-rules create allow-zep --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:8080 --source-ranges=0.0.0.0/0
+gcloud compute firewall-rules create $rulename --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:8080 --source-ranges=0.0.0.0/0
