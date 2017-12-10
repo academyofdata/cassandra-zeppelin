@@ -3,7 +3,7 @@ ZEP_VER="0.7.3"
 
 PASSWORD='my-pass'
 echo "getting Zeppeling Archive"
-wget http://www.apache.org/dyn/closer.cgi/zeppelin/zeppelin-${ZEP_VER}/zeppelin-${ZEP_VER}-bin-all.tgz
+wget http://mirror.evowise.com/apache/zeppelin/zeppelin-${ZEP_VER}/zeppelin-${ZEP_VER}-bin-all.tgz
 #wget http://apache.javapipe.com/zeppelin/zeppelin-${ZEP_VER}/zeppelin-${ZEP_VER}-bin-all.tgz
 echo "unpacking..."
 tar -xzvf zeppelin-${ZEP_VER}-bin-all.tgz
