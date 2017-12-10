@@ -1,6 +1,7 @@
 
 safeRun() {
    cmnd="$@"                    #...insure whitespace passed and preserved
+   echo "executing $cmnd"
    $cmnd
    ERROR_CODE=$?                #...so we have it for the command we want
    if [ ${ERROR_CODE} != 0 ]; then
