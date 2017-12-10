@@ -35,3 +35,6 @@ then
 	./bin/zeppelin-daemon.sh restart
 
 fi
+
+#enable automatic start at boot
+sudo sed "$ i\\$(pwd)/zeppelin-${ZEP_VER}-bin-all/bin/zeppelin-daemon.sh start"
