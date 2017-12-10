@@ -1,13 +1,15 @@
 
 safeRun() {
-   cmnd="$@"                    #...insure whitespace passed and preserved
-   echo "executing $cmnd"
-   $cmnd
-   ERROR_CODE=$?                #...so we have it for the command we want
-   if [ ${ERROR_CODE} != 0 ]; then
-      printf "Error when executing command: '${command}'\n"
-      exit ${ERROR_CODE}        #...consider 'return()' here
-   fi
+  typeset cmnd="$*"
+  typeset ret_code
+
+  echo cmnd=$cmnd
+  eval $cmnd
+  ret_code=$?
+  if [ $ret_code != 0 ]; then
+    printf "Error : [%d] when executing command: '$cmnd'" $ret_code
+    exit $ret_code
+  fi
 }
 
 if [ $# -lt 1 ]
