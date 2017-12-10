@@ -1,5 +1,6 @@
 echo "getting Zeppeling Archive"
-wget http://apache.javapipe.com/zeppelin/zeppelin-${ZEP_VER}/zeppelin-${ZEP_VER}-bin-all.tgz
+wget http://www.apache.org/dyn/closer.cgi/zeppelin/zeppelin-${ZEP_VER}/zeppelin-${ZEP_VER}-bin-all.tgz
+#wget http://apache.javapipe.com/zeppelin/zeppelin-${ZEP_VER}/zeppelin-${ZEP_VER}-bin-all.tgz
 echo "unpacking..."
 tar -xzvf zeppelin-${ZEP_VER}-bin-all.tgz
 cd zeppelin-${ZEP_VER}-bin-all/
