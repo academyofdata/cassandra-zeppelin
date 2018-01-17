@@ -1,5 +1,5 @@
 node01:
-    image: cassandra:3.9
+    image: cassandra:3.11
     ports:
         - "7000:7000"
         - "7001:7001"
@@ -10,7 +10,7 @@ node01:
         - ./data1:/var/lib/cassandra
    
 node02:
-    image: cassandra:3.9
+    image: cassandra:3.11
     ports:
         - "17000:7000"
         - "17001:7001"
@@ -25,7 +25,7 @@ node02:
         - node01:node01
 
 node03:
-    image: cassandra:3.9
+    image: cassandra:3.11
     ports:
         - "27000:7000"
         - "27001:7001"
