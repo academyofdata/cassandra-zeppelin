@@ -1,4 +1,5 @@
 #!/bin/bash
+#we'll use jq to tinker with the json file
 apt-get install -y jq
 file="/tmp/interpreter.json"
 conf="conf/interpreter.json"
