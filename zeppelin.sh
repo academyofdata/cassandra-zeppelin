@@ -1,7 +1,7 @@
 #script that installs zeppelin with all dependencies and starts it
 ZEP_VER="0.7.3"
 
-if [ $# -lt 1 ]
+if [ $# -gte 1 ]
 then
 	PASSWORD=$1
 else
