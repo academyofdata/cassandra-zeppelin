@@ -16,7 +16,7 @@ sudo adduser $1 --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-p
 
 if [ $# -gt 2 ]
 then
-	PASSWD=$2
+  PASSWD=$2
 else
   PASSWD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
 fi
