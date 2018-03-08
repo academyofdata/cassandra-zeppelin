@@ -1,7 +1,7 @@
 #script that installs zeppelin with all dependencies and starts it
 ZEP_VER="0.7.3"
 
-if [ $# -gte 1 ]
+if [ $# -ge 1 ]
 then
 	PASSWORD=$1
 else
@@ -29,14 +29,14 @@ echo "starting daemon..."
 ./bin/zeppelin-daemon.sh start
 
 
-if [ $# -ge 1 ]
+if [ $# -ge 2 ]
 then
 	echo "waiting for Zeppelin to start..."
 	#wait untin Zeppelin starts and creates the interpreter.json file
 	sleep 60
-	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$1\"/g" ./conf/interpreter.json
+	sed -i "s/\"cassandra.hosts\": \"localhost\"/\"cassandra.hosts\": \"$2\"/g" ./conf/interpreter.json
 	sed -i "s/\"cassandra.cluster\": \"Test Cluster\"/\"cassandra.cluster\": \"CassandraTraining\"/g" ./conf/interpreter.json
-	sed -i "s/\"spark.cores.max\": \"\"/\"spark.cores.max\": \"\",\"spark.cassandra.connection.host\": \"$1\"/g" ./conf/interpreter.json
+	sed -i "s/\"spark.cores.max\": \"\"/\"spark.cores.max\": \"\",\"spark.cassandra.connection.host\": \"$2\"/g" ./conf/interpreter.json
 	echo "re-starting daemon..."
 	./bin/zeppelin-daemon.sh restart
 
