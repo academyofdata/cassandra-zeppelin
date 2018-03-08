@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ $# -lt 1 ]
 then
-  echo "Need at least one param - user to add
+  echo "Need at least one param - user to add"
   exit
 fi
 
