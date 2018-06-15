@@ -1,4 +1,5 @@
 #!/bin/bash
+#script that edits zeppelin interpreter configuration to enable datastax spark connector
 #we'll use jq to tinker with the json file
 sudo apt-get install -y jq
 file="/tmp/interpreter.json"
