@@ -14,7 +14,7 @@ sudo /etc/init.d/ssh reload
 echo "adding user '$1'"
 sudo adduser $1 --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 
-if [ $# -gt 2 ]
+if (( $# > 1 ))
 then
   PASSWD=$2
 else
