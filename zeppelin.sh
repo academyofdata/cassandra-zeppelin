@@ -1,5 +1,5 @@
 #script that installs zeppelin with all dependencies and starts it
-ZEP_VER="0.8.0"
+ZEP_VER="0.8.2"
 
 if [ $# -ge 1 ]
 then
